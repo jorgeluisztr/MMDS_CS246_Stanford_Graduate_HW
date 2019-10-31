@@ -77,7 +77,7 @@ object hw1b {
       .filter(x=>x._2._2.nonEmpty)
       .map(y=>(y._1.toString, y._2._1.toLong))
 
-    // Pair of products whose count is bigger that support (L2)
+    // Pair of products whose count is bigger that support (L2)... Basically Candidates for Market Basket Analysis for pairs
     val pairs = spark.parallelize(filterOne.flatMap(x => pair(x, popularItem, support)))
 
     pairs.saveAsTextFile(output)
